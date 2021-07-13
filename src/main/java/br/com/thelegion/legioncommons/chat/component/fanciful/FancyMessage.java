@@ -1,4 +1,4 @@
-package br.com.thelegion.legioncommons.chat.fanciful;
+package br.com.thelegion.legioncommons.chat.component.fanciful;
 
 
 import br.com.thelegion.legioncommons.chat.util.ArrayWrapper;
@@ -9,12 +9,10 @@ import com.google.gson.*;
 import com.google.gson.stream.JsonWriter;
 
 import net.md_5.bungee.api.ChatColor;
-import net.minecraft.server.v1_8_R3.NBTTagCompound;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
-import org.bukkit.craftbukkit.v1_8_R3.inventory.CraftItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -24,7 +22,7 @@ import java.lang.reflect.Method;
 import java.util.*;
 import java.util.logging.Level;
 
-import static br.com.thelegion.legioncommons.chat.fanciful.TextualComponent.rawText;
+import static br.com.thelegion.legioncommons.chat.component.fanciful.TextualComponent.rawText;
 
 
 /**

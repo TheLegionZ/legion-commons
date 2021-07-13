@@ -1,4 +1,4 @@
-package br.com.thelegion.legioncommons.chat.fanciful;
+package br.com.thelegion.legioncommons.chat.component.fanciful;
 
 import br.com.thelegion.legioncommons.chat.util.TextUtil;
 import com.google.common.collect.BiMap;

@@ -1,6 +1,6 @@
-package br.com.thelegion.legioncommons.chat;
+package br.com.thelegion.legioncommons.chat.component;
 
-import br.com.thelegion.legioncommons.chat.fanciful.FancyMessage;
+import br.com.thelegion.legioncommons.chat.component.fanciful.FancyMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

@@ -15,26 +15,13 @@ targetCompatibility = '1.8'
 repositories {
     mavenCentral()
     mavenLocal()
+    jcenter()
 
-    maven {
-        name = 'jitpack'
-        url = 'https://jitpack.io'
 
-    }
-
-    maven {
-        url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
-    }
-
-    maven {
-        name = 'spigotmc-repo'
-        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
-    }
-    maven {
-        name = 'sonatype'
-        url = 'https://oss.sonatype.org/content/groups/public/'
-    }
-
+    maven { url = 'https://jitpack.io' }
+    maven { url 'https://repo.extendedclip.com/content/repositories/placeholderapi/' }
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+    maven { url 'https://oss.sonatype.org/content/groups/public/' }
     maven { url 'https://repo.codemc.io/repository/maven-public' }
     maven { url "https://repo.dmulloy2.net/repository/public/" }
 
@@ -45,8 +32,6 @@ dependencies {
     compileOnly 'me.clip:placeholderapi:2.10.9'
 
     compileOnly fileTree("/libs")
-
-    implementation 'io.github.sasuked:bukkit-sql:1.2-SNAPSHOT'
 
     compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.6.0";
 
@@ -59,8 +44,7 @@ tasks.withType(JavaCompile) {
 }
 
 shadowJar {
-    relocate("io.github.sasuked.bukkitsql", "io.github.sasuked.shadedlibs.sql")
-    relocate("me.tom.sparse.spigot.chat" , "io.github.sasuked.shadedlibs.chat")
+    relocate("me.tom.sparse.spigot.chat", "io.github.sasuked.shadedlibs.chat")
 }
 
 processResources {

@@ -14,7 +14,6 @@ public final class LegionCommonsPlugin extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		menuProvider = new MenuProvider(this);
-
 		CommandUtils.getCommandMap().register("internal" , new InternalMenuTestCommand(this));
 	}
 

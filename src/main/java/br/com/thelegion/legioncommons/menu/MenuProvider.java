@@ -23,6 +23,7 @@ public class MenuProvider implements Listener {
 		}
 
 		Bukkit.getPluginManager().registerEvents(this, plugin);
+		Bukkit.getScheduler().runTaskTimerAsynchronously(plugin, new InternalMenuTickTask(plugin), 0, 0);
 	}
 
 	public void openMenu(Player player, InventoryMenu menu) {
@@ -54,8 +55,25 @@ public class MenuProvider implements Listener {
 			return;
 		}
 
-		openMenu.handleClose(player);
-
+		openMenu.onClose(player);
 		playerToMenuMap.remove(player.getUniqueId());
+	}
+
+	protected class InternalMenuTickTask implements Runnable {
+		private final Plugin plugin;
+
+		public InternalMenuTickTask(Plugin plugin) {
+			this.plugin = plugin;
+		}
+
+		@Override
+		public void run() {
+			for (Player player : Bukkit.getOnlinePlayers()) {
+				InventoryMenu menu = playerToMenuMap.get(player.getUniqueId());
+				if (menu != null) {
+					menu.onTickUpdate(player);
+				}
+			}
+		}
 	}
 }

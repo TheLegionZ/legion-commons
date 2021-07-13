@@ -21,8 +21,11 @@ public abstract class InventoryMenu implements InventoryHolder {
 
 	private final String title;
 	private final int rows;
+
 	private final Inventory inventory;
 	private final Map<Integer, ItemButton> buttonPositionMap;
+	private final Map<String, Object> metadataMap;
+
 
 	public InventoryMenu(String title, int rows) {
 		Preconditions.checkArgument(rows <= 6, "Inventarios só suportam até 6 linhas!");
@@ -31,6 +34,7 @@ public abstract class InventoryMenu implements InventoryHolder {
 		this.rows = rows;
 		this.inventory = Bukkit.createInventory(this, 9 * rows, title);
 		this.buttonPositionMap = new WeakHashMap<>();
+		this.metadataMap = new WeakHashMap<>();
 	}
 
 	protected void generate() {
@@ -82,18 +86,22 @@ public abstract class InventoryMenu implements InventoryHolder {
 
 	public ItemStack getItem(int slot) {
 		ItemButton itemButton = buttonPositionMap.get(slot);
-		if (itemButton == null) {
-			return null;
+		if (itemButton != null) {
+			return itemButton.getItemStack();
 		}
 
-		return itemButton.getItemStack();
+		return inventory.getItem(slot);
 	}
 
-	public void handleClose(Player player) {
+	public void onClose(Player player) {
+		// dummy
+	}
+
+	public void onTickUpdate(Player player) {
+		// dummy
 	}
 
 	void handleClickEvent(InventoryClickEvent event) {
-		if (event.getClickedInventory() == null) return;
 		if (!event.getClickedInventory().equals(inventory)) return;
 		if (!(event.getWhoClicked() instanceof Player)) return;
 

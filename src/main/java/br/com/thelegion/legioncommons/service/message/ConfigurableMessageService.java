@@ -1,4 +1,4 @@
-package br.com.thelegion.legioncommons.service;
+package br.com.thelegion.legioncommons.service.message;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;

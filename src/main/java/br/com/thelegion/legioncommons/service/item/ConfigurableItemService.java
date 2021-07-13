@@ -1,4 +1,4 @@
-package br.com.thelegion.legioncommons.service;
+package br.com.thelegion.legioncommons.service.item;
 
 import br.com.thelegion.legioncommons.chat.util.TextUtil;
 import br.com.thelegion.legioncommons.item.ItemBuilder;

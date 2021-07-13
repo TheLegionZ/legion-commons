@@ -1,6 +1,6 @@
 package br.com.thelegion.legioncommons.chat.util;
 
-import br.com.thelegion.legioncommons.chat.LegacyConverter;
+import br.com.thelegion.legioncommons.chat.component.LegacyConverter;
 import net.md_5.bungee.api.ChatColor;
 import net.minecraft.server.v1_8_R3.IChatBaseComponent;
 import net.minecraft.server.v1_8_R3.PacketPlayOutChat;

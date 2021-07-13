@@ -35,6 +35,20 @@ public class ItemBuilder {
 
 	private final ItemStack stack;
 
+
+	public static ItemBuilder fromData(MaterialData data){
+		return new ItemBuilder(data).amount(1);
+	}
+
+	public static ItemBuilder fromData(Material material , byte data){
+		return fromData(new MaterialData(material , data));
+	}
+
+	public static ItemBuilder fromItem(ItemStack itemStack){
+		return new ItemBuilder(itemStack);
+	}
+
+
 	public ItemBuilder(Material material) {
 		this.stack = new ItemStack(material);
 	}

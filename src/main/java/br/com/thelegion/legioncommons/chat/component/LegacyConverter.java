@@ -1,7 +1,7 @@
-package br.com.thelegion.legioncommons.chat;
+package br.com.thelegion.legioncommons.chat.component;
 
-import br.com.thelegion.legioncommons.chat.fanciful.FancyMessage;
-import br.com.thelegion.legioncommons.chat.fanciful.MessagePart;
+import br.com.thelegion.legioncommons.chat.component.fanciful.FancyMessage;
+import br.com.thelegion.legioncommons.chat.component.fanciful.MessagePart;
 import net.md_5.bungee.api.ChatColor;
 
 import java.net.MalformedURLException;
