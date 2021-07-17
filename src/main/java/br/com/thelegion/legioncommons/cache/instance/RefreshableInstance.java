@@ -1,4 +1,4 @@
-package br.com.thelegion.legioncommons.cache;
+package br.com.thelegion.legioncommons.cache.instance;
 
 import lombok.Builder;
 
