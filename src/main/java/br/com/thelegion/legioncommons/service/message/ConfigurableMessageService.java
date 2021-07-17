@@ -46,6 +46,10 @@ public final class ConfigurableMessageService {
 		return sendListedMessage(sender , messageList.get() , replacer);
 	}
 
+	public boolean sendMessageIfPresent(CommandSender sender,  String path){
+		return sendMessageIfPresent(sender , path , null);
+	}
+
 
 	private boolean sendSingleMessage(CommandSender sender, String message, Function<String, String> replacer) {
 		if (replacer != null) {
@@ -63,6 +67,7 @@ public final class ConfigurableMessageService {
 
 		return true;
 	}
+
 
 	private String colorize(String s) {
 		return COLOR_FUNCTION.apply(s);

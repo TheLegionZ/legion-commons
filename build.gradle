@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'io.github.sasuked'
-version = '1.0-RELEASE'
+version = '1.1-RELEASE'
 
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
@@ -37,6 +37,11 @@ dependencies {
 
     compileOnly 'org.projectlombok:lombok:1.18.16'
     annotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+
+    compileOnly("com.github.MilkBowl:VaultAPI:1.7"){
+        exclude group: "org.bukkit", name: "bukkit", version: '1.13.1-R0.1-SNAPSHOT'
+    }
 }
 
 tasks.withType(JavaCompile) {
