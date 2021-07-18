@@ -2,6 +2,7 @@ package br.com.thelegion.legioncommons.cache;
 
 import javax.annotation.Nullable;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class LifecycledMap<K, V> {
@@ -39,6 +40,18 @@ public class LifecycledMap<K, V> {
 		}
 	}
 
+	public V get(K k) {
+		return backingMap.get(k);
+	}
+
+	public V getOrDefault(K k, V def) {
+		return backingMap.getOrDefault(k, def);
+	}
+
+	public Optional<V> find(K key) {
+		return Optional.ofNullable(get(key));
+	}
+
 	public Map<K, V> asMap() {
 		return backingMap;
 	}
@@ -50,7 +63,6 @@ public class LifecycledMap<K, V> {
 	interface RemovalListener<K, V> {
 		void onRemove(K key, @Nullable V value);
 	}
-
 
 	public static class LifecycledMapBuilder<K, V> {
 		private Map<K, V> backingMap;

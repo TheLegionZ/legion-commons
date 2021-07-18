@@ -1,5 +1,6 @@
 package br.com.thelegion.legioncommons.service.economy;
 
+import br.com.thelegion.legioncommons.service.economy.excpetions.EconomyProviderNotFoundException;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.plugin.Plugin;
@@ -16,25 +17,26 @@ public class EconomyService {
 		this.setup();
 	}
 
-	public double getPlayerMoney(OfflinePlayer player) {
+	public double getPlayerMoney(OfflinePlayer player) throws EconomyProviderNotFoundException {
 		if (economy == null) {
-			throw new NullPointerException("Economy provider not found on " + plugin.getName());
+			throw new EconomyProviderNotFoundException("Economy provider not found on " + plugin.getName());
 		}
+
 
 		return economy.getBalance(player);
 	}
 
-	public boolean withdraw(OfflinePlayer player, double amount) {
+	public boolean withdraw(OfflinePlayer player, double amount) throws EconomyProviderNotFoundException {
 		if (economy == null) {
-			throw new NullPointerException("Economy provider not found on " + plugin.getName());
+			throw new EconomyProviderNotFoundException("Economy provider not found on " + plugin.getName());
 		}
 
 		return economy.withdrawPlayer(player, amount).transactionSuccess();
 	}
 
-	public boolean deposit(OfflinePlayer player, double amount) {
+	public boolean deposit(OfflinePlayer player, double amount) throws EconomyProviderNotFoundException {
 		if (economy == null) {
-			throw new NullPointerException("Economy provider not found on " + plugin.getName());
+			throw new EconomyProviderNotFoundException("Economy provider not found on " + plugin.getName());
 		}
 
 		return economy.depositPlayer(player, amount).transactionSuccess();

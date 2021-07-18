@@ -19,6 +19,7 @@ import org.bukkit.util.Vector;
 import java.io.File;
 import java.io.InputStream;
 import java.io.Reader;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -26,12 +27,15 @@ import java.util.stream.Collectors;
 
 import static org.bukkit.ChatColor.translateAlternateColorCodes;
 
+@SuppressWarnings("all")
 @Getter
 public class PluginConfiguration {
 
-	private Plugin owningPlugin;
-	private String name;
+	private final Plugin owningPlugin;
+	private final String name;
+
 	protected File rootFile;
+
 	private FileConfiguration configuration;
 
 	public PluginConfiguration(Plugin owningPlugin, String name) {
@@ -58,7 +62,6 @@ public class PluginConfiguration {
 		}
 	}
 
-
 	public boolean getBoolean(String s, boolean b) {
 		return this.configuration.getBoolean(s, b);
 	}
@@ -66,7 +69,6 @@ public class PluginConfiguration {
 	public List<Byte> getByteList(String s) {
 		return this.configuration.getByteList(s);
 	}
-
 
 	public OfflinePlayer getOfflinePlayer(String s, OfflinePlayer offlinePlayer) {
 		return this.configuration.getOfflinePlayer(s, offlinePlayer);

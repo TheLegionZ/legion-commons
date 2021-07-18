@@ -15,6 +15,10 @@ public class EventWrapper extends Event {
 		super(isAsync);
 	}
 
+	public EventWrapper() {
+		super(false);
+	}
+
 	@Override
 	public HandlerList getHandlers() {
 		return HANDLER_LIST;
