@@ -1,6 +1,6 @@
 package br.com.thelegion.legioncommons.service.economy;
 
-import br.com.thelegion.legioncommons.service.economy.excpetions.EconomyProviderNotFoundException;
+import br.com.thelegion.legioncommons.service.economy.exceptions.EconomyProviderNotFoundException;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.plugin.Plugin;

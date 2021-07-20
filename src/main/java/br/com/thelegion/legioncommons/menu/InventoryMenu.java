@@ -1,5 +1,6 @@
 package br.com.thelegion.legioncommons.menu;
 
+import br.com.thelegion.legioncommons.menu.button.ItemButton;
 import com.google.common.base.Preconditions;
 import lombok.Getter;
 import org.bukkit.Bukkit;
@@ -25,7 +26,6 @@ public abstract class InventoryMenu implements InventoryHolder {
 	private final Inventory inventory;
 	private final Map<Integer, ItemButton> buttonPositionMap;
 	private final Map<String, Object> metadataMap;
-
 
 	public InventoryMenu(String title, int rows) {
 		Preconditions.checkArgument(rows <= 6, "Inventarios só suportam até 6 linhas!");

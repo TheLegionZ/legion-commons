@@ -1,4 +1,4 @@
-package br.com.thelegion.legioncommons.event;
+package br.com.thelegion.legioncommons.event.wrappers;
 
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;

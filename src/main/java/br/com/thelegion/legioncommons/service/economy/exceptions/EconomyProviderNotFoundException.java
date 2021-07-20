@@ -1,4 +1,4 @@
-package br.com.thelegion.legioncommons.service.economy.excpetions;
+package br.com.thelegion.legioncommons.service.economy.exceptions;
 
 public class EconomyProviderNotFoundException extends Exception {
 

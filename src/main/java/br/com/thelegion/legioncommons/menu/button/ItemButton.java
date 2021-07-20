@@ -1,4 +1,4 @@
-package br.com.thelegion.legioncommons.menu;
+package br.com.thelegion.legioncommons.menu.button;
 
 import lombok.Builder;
 import lombok.Data;
@@ -9,7 +9,7 @@ import java.util.function.BiConsumer;
 
 @Data
 @Builder
-class ItemButton {
+public class ItemButton {
 
 	public static final ItemButton EMPTY = ItemButton.builder().build();
 

@@ -1,6 +1,5 @@
 package br.com.thelegion.legioncommons.event.wrappers;
 
-import br.com.thelegion.legioncommons.event.EventWrapper;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.event.Cancellable;

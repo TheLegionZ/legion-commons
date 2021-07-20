@@ -1,5 +1,6 @@
 package br.com.thelegion.legioncommons.menu;
 
+import br.com.thelegion.legioncommons.tick.AsyncServerTickEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -58,20 +59,12 @@ public class MenuProvider implements Listener {
 		playerToMenuMap.remove(player.getUniqueId());
 	}
 
-	protected class InternalMenuTickTask implements Runnable {
-		private final Plugin plugin;
-
-		public InternalMenuTickTask(Plugin plugin) {
-			this.plugin = plugin;
-		}
-
-		@Override
-		public void run() {
-			for (Player player : Bukkit.getOnlinePlayers()) {
-				InventoryMenu menu = playerToMenuMap.get(player.getUniqueId());
-				if (menu != null) {
-					menu.onTickUpdate(player);
-				}
+	@EventHandler(priority = EventPriority.HIGHEST)
+	public void onTickUpdate(AsyncServerTickEvent event) {
+		for (Player player : Bukkit.getOnlinePlayers()) {
+			InventoryMenu menu = playerToMenuMap.get(player.getUniqueId());
+			if (menu != null) {
+				menu.onTickUpdate(player);
 			}
 		}
 	}

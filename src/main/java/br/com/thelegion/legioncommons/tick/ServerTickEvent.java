@@ -1,6 +1,6 @@
 package br.com.thelegion.legioncommons.tick;
 
-import br.com.thelegion.legioncommons.event.EventWrapper;
+import br.com.thelegion.legioncommons.event.wrappers.EventWrapper;
 import org.bukkit.Bukkit;
 
 public class ServerTickEvent extends EventWrapper {
