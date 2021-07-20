@@ -90,4 +90,9 @@ public class JsonMessagePart implements MessagePart {
 
 		return fancyMessage;
 	}
+
+	@Override
+	public String getText() {
+		return text;
+	}
 }
