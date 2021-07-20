@@ -23,7 +23,6 @@ public class MenuProvider implements Listener {
 		}
 
 		Bukkit.getPluginManager().registerEvents(this, plugin);
-		Bukkit.getScheduler().runTaskTimerAsynchronously(plugin, new InternalMenuTickTask(plugin), 0, 0);
 	}
 
 	public void openMenu(Player player, InventoryMenu menu) {
