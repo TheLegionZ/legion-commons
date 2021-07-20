@@ -96,7 +96,6 @@ public class FormattedMessage {
 				}
 
 				String tail = partText.substring(firstIndex);
-
 				if (!tail.isEmpty()) {
 					updatedMessageParts.add(new LegacyMessagePart(tail));
 				}
@@ -108,6 +107,15 @@ public class FormattedMessage {
 		this.messageParts = updatedMessageParts;
 
 		return this;
+	}
+
+	public boolean contains(String text) {
+		for (MessagePart messagePart : messageParts) {
+			if (messagePart.getText().contains(text)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
     /*
