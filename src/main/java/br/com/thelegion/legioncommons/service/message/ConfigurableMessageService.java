@@ -47,7 +47,7 @@ public final class ConfigurableMessageService {
 	}
 
 	public boolean sendMessageIfPresent(CommandSender sender,  String path){
-		return sendMessageIfPresent(sender , path , null);
+		return sendMessageIfPresent(sender , path , COLOR_FUNCTION);
 	}
 
 

@@ -62,7 +62,8 @@ public class JsonMessagePart implements MessagePart {
 	public FancyMessage append(FancyMessage fancyMessage) {
 		TextUtil textUtil = TextUtil.getInstance();
 
-		LegacyConverter.getMessageParts(fancyMessage.getLastColors() + textUtil.stylish(text)).forEach(messagePart -> {
+		LegacyConverter.getMessageParts(fancyMessage.getLastColors() + textUtil.stylish(text))
+			.forEach(messagePart -> {
 			fancyMessage.then(messagePart);
 
 			if (command != null)
