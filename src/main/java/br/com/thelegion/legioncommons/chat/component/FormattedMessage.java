@@ -17,7 +17,15 @@ public class FormattedMessage {
 	private List<MessagePart> messageParts = new ArrayList<>();
 
 	public FormattedMessage(String text) {
-		this.messageParts.add(new LegacyMessagePart(text));
+		this(new LegacyMessagePart(text));
+	}
+
+	private FormattedMessage(MessagePart messagePart){
+		this.messageParts.add(messagePart);
+	}
+
+	public static FormattedMessage fromJson(JsonMessagePart messagePart){
+		return new FormattedMessage(messagePart);
 	}
 
 	public static FormattedMessage fromText(String text) {

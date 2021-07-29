@@ -7,12 +7,8 @@ import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
 @Getter
 public final class LegionCommonsPlugin extends JavaPlugin {
-
-	private static final AtomicInteger TICK_COUNTER = new AtomicInteger(0);
 
 	private MenuProvider menuProvider;
 

@@ -1,5 +1,6 @@
 package br.com.thelegion.legioncommons.service.message;
 
+import br.com.thelegion.legioncommons.chat.replacer.StringReplacer;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.ConfigurationSection;
@@ -32,6 +33,10 @@ public final class ConfigurableMessageService {
 		return Optional.of(stringList);
 	}
 
+	public boolean sendMessageIfPresent(CommandSender sender, String path, StringReplacer replacer) {
+		return sendMessageIfPresent(sender, path, replacer.toFunction());
+	}
+
 	public boolean sendMessageIfPresent(CommandSender sender, String path, Function<String, String> replacer) {
 		Optional<String> message = this.findMessage(path);
 		if (message.isPresent()) {
@@ -43,11 +48,11 @@ public final class ConfigurableMessageService {
 			return false;
 		}
 
-		return sendListedMessage(sender , messageList.get() , replacer);
+		return sendListedMessage(sender, messageList.get(), replacer);
 	}
 
-	public boolean sendMessageIfPresent(CommandSender sender,  String path){
-		return sendMessageIfPresent(sender , path , COLOR_FUNCTION);
+	public boolean sendMessageIfPresent(CommandSender sender, String path) {
+		return sendMessageIfPresent(sender, path, COLOR_FUNCTION);
 	}
 
 
