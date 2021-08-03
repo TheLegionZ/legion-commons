@@ -1,5 +1,7 @@
 package br.com.thelegion.legioncommons.scanners;
 
+import br.com.thelegion.legioncommons.chat.replacer.StringReplacer;
+
 import java.security.CodeSource;
 import java.util.Collections;
 import java.util.HashSet;
@@ -16,18 +18,21 @@ import java.util.zip.ZipInputStream;
  */
 public final class ZISScanner {
 
-	public Set<Class<?>> getClasses(final Class<?> main, String pckg) {
+	private static final StringReplacer CLASS_REPLACER = StringReplacer.replacing('/', '.')
+		.and(".class", "");
+
+
+
+	public static Set<Class<?>> getClasses(final Class<?> main, String pckg) {
 		pckg = pckg.replace('.', '/');
 
 		final ClassLoader loader = main.getClassLoader();
-
 		final CodeSource src = main.getProtectionDomain().getCodeSource();
 		if (src == null) {
 			return Collections.emptySet();
 		}
 
 		final Set<Class<?>> classes = new HashSet<>();
-
 		try (final ZipInputStream zip = new ZipInputStream(src.getLocation().openStream())) {
 			ZipEntry entry;
 
@@ -39,7 +44,10 @@ public final class ZISScanner {
 				}
 
 				try {
-					classes.add(loader.loadClass(name.replace('/', '.').replace(".class", "")));
+					Class<?> clazz = loader.loadClass(CLASS_REPLACER.transform(name));
+					if (clazz.isAssignableFrom(main)) {
+						classes.add(clazz);
+					}
 				} catch (Exception e) {
 					throw new RuntimeException(e);
 				}
