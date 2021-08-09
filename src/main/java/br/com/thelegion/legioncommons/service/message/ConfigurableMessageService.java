@@ -1,5 +1,6 @@
 package br.com.thelegion.legioncommons.service.message;
 
+import br.com.thelegion.legioncommons.annotations.BukkitService;
 import br.com.thelegion.legioncommons.chat.replacer.StringReplacer;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -9,7 +10,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
-@SuppressWarnings("all")
+
+@BukkitService
 public final class ConfigurableMessageService {
 
 	final static Function<String, String> COLOR_FUNCTION = s -> ChatColor.translateAlternateColorCodes('&', s);

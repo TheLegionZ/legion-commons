@@ -34,5 +34,4 @@ public class EventConsumers {
 	public static <T extends Cancellable> Consumer<T> uncancel() {
 		return (Consumer<T>) UNSET_CANCELLED;
 	}
-
 }

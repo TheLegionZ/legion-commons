@@ -1,12 +1,14 @@
 package br.com.thelegion.legioncommons.service.economy;
 
+import br.com.thelegion.legioncommons.annotations.BukkitService;
 import br.com.thelegion.legioncommons.service.economy.exceptions.EconomyProviderNotFoundException;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
-public class EconomyService {
+@BukkitService
+public final class EconomyService {
 
 	private final Plugin plugin;
 

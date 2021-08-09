@@ -1,5 +1,6 @@
 package br.com.thelegion.legioncommons.service.item;
 
+import br.com.thelegion.legioncommons.annotations.BukkitService;
 import br.com.thelegion.legioncommons.chat.util.TextUtil;
 import br.com.thelegion.legioncommons.item.ItemBuilder;
 import org.bukkit.configuration.ConfigurationSection;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@BukkitService
 public final class ConfigurableItemService {
 
 	final static TextUtil TEXT_UTIL = TextUtil.getInstance();

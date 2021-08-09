@@ -342,6 +342,15 @@ public class PluginConfiguration {
 		return this.configuration.getParent();
 	}
 
+	public ConfigurationSection getSectionOrCreate(String path) {
+		ConfigurationSection configurationSection = this.getConfigurationSection(path);
+		if (configurationSection == null) {
+			configurationSection = createSection(path);
+		}
+
+		return configurationSection;
+	}
+
 	public long getLong(String s, long l) {
 		return this.configuration.getLong(s, l);
 	}
