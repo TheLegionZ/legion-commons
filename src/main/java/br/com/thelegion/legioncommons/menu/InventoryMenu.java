@@ -79,6 +79,8 @@ public abstract class InventoryMenu implements InventoryHolder {
 	}
 
 	public void open(Player player) {
+		onRender(player);
+
 		generate();
 
 		player.openInventory(inventory);
@@ -91,6 +93,10 @@ public abstract class InventoryMenu implements InventoryHolder {
 		}
 
 		return inventory.getItem(slot);
+	}
+
+	public void onRender(Player player) {
+		// dummy
 	}
 
 	public void onClose(Player player) {

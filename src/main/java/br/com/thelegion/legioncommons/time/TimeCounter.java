@@ -2,10 +2,10 @@ package br.com.thelegion.legioncommons.time;
 
 public class TimeCounter {
 
-	private long start;
+	private long startTime;
 
-	private TimeCounter(long start) {
-		this.start = start;
+	private TimeCounter(long startTime) {
+		this.startTime = startTime;
 	}
 
 	public static TimeCounter fromNow() {
@@ -13,11 +13,15 @@ public class TimeCounter {
 	}
 
 	public void reset() {
-		this.start = System.currentTimeMillis();
+		this.startTime = System.currentTimeMillis();
+	}
+
+	public long elapsedTimeInMillis() {
+		return System.currentTimeMillis() - startTime;
 	}
 
 	public double elapsedTime() {
 		long now = System.currentTimeMillis();
-		return (now - start) / 1000.0;
+		return (now - startTime) / 1000.0;
 	}
 }
