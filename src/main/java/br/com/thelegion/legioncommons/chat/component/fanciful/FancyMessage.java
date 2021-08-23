@@ -205,7 +205,7 @@ public class FancyMessage implements JsonRepresentedObject, Cloneable, Iterable<
 
 	/**
 	 * Set the behavior of the current editing component to display information about an achievement when the client hovers over the text.
-	 * <p>Tooltips do not inherit display characteristics, such as color and styles, from the message component on which they are applied.</p>
+	 * <p>Tooltips do not inherit display characteristics, such as color and styles, of the message component on which they are applied.</p>
 	 *
 	 * @param name The name of the achievement to display, excluding the "achievement." prefix.
 	 * @return This builder instance.
@@ -217,7 +217,7 @@ public class FancyMessage implements JsonRepresentedObject, Cloneable, Iterable<
 
 	/**
 	 * Set the behavior of the current editing component to display raw text when the client hovers over the text.
-	 * <p>Tooltips do not inherit display characteristics, such as color and styles, from the message component on which they are applied.</p>
+	 * <p>Tooltips do not inherit display characteristics, such as color and styles, of the message component on which they are applied.</p>
 	 *
 	 * @param text The text, which supports newlines, which will be displayed to the client upon hovering.
 	 * @return This builder instance.
@@ -229,7 +229,7 @@ public class FancyMessage implements JsonRepresentedObject, Cloneable, Iterable<
 
 	/**
 	 * Set the behavior of the current editing component to display raw text when the client hovers over the text.
-	 * <p>Tooltips do not inherit display characteristics, such as color and styles, from the message component on which they are applied.</p>
+	 * <p>Tooltips do not inherit display characteristics, such as color and styles, of the message component on which they are applied.</p>
 	 *
 	 * @param lines The lines of text which will be displayed to the client upon hovering. The iteration order of this object will be the order in which the lines of the tooltip are created.
 	 * @return This builder instance.
@@ -241,7 +241,7 @@ public class FancyMessage implements JsonRepresentedObject, Cloneable, Iterable<
 
 	/**
 	 * Set the behavior of the current editing component to display raw text when the client hovers over the text.
-	 * <p>Tooltips do not inherit display characteristics, such as color and styles, from the message component on which they are applied.</p>
+	 * <p>Tooltips do not inherit display characteristics, such as color and styles, of the message component on which they are applied.</p>
 	 *
 	 * @param lines The lines of text which will be displayed to the client upon hovering.
 	 * @return This builder instance.
@@ -277,7 +277,7 @@ public class FancyMessage implements JsonRepresentedObject, Cloneable, Iterable<
 		Method saveNmsItemStackMethod = ReflectionUtil.getMethod(nmsItemStackClazz, "save", nbtTagCompoundClazz);
 
 		Object nmsNbtTagCompoundObj; // This will just be an empty NBTTagCompound instance to invoke the saveNms method
-		Object nmsItemStackObj; // This is the net.minecraft.server.ItemStack object received from the asNMSCopy method
+		Object nmsItemStackObj; // This is the net.minecraft.server.ItemStack object received of the asNMSCopy method
 		Object itemAsJsonObject; // This is the net.minecraft.server.ItemStack after being put through saveNmsItem method
 
 		try {
@@ -296,7 +296,7 @@ public class FancyMessage implements JsonRepresentedObject, Cloneable, Iterable<
 
 	/**
 	 * Set the behavior of the current editing component to display formatted text when the client hovers over the text.
-	 * <p>Tooltips do not inherit display characteristics, such as color and styles, from the message component on which they are applied.</p>
+	 * <p>Tooltips do not inherit display characteristics, such as color and styles, of the message component on which they are applied.</p>
 	 *
 	 * @param text The formatted text which will be displayed to the client upon hovering.
 	 * @return This builder instance.
@@ -315,7 +315,7 @@ public class FancyMessage implements JsonRepresentedObject, Cloneable, Iterable<
 
 	/**
 	 * Set the behavior of the current editing component to display the specified lines of formatted text when the client hovers over the text.
-	 * <p>Tooltips do not inherit display characteristics, such as color and styles, from the message component on which they are applied.</p>
+	 * <p>Tooltips do not inherit display characteristics, such as color and styles, of the message component on which they are applied.</p>
 	 *
 	 * @param lines The lines of formatted text which will be displayed to the client upon hovering.
 	 * @return This builder instance.
@@ -354,7 +354,7 @@ public class FancyMessage implements JsonRepresentedObject, Cloneable, Iterable<
 
 	/**
 	 * Set the behavior of the current editing component to display the specified lines of formatted text when the client hovers over the text.
-	 * <p>Tooltips do not inherit display characteristics, such as color and styles, from the message component on which they are applied.</p>
+	 * <p>Tooltips do not inherit display characteristics, such as color and styles, of the message component on which they are applied.</p>
 	 *
 	 * @param lines The lines of text which will be displayed to the client upon hovering. The iteration order of this object will be the order in which the lines of the tooltip are created.
 	 * @return This builder instance.
@@ -569,7 +569,7 @@ public class FancyMessage implements JsonRepresentedObject, Cloneable, Iterable<
 	 * The primary omissions are tooltips and clickable actions. Consequently, this method should be used only as a last resort.
 	 * </p>
 	 * <p>
-	 * Color and formatting can be removed from the returned string by using {@link ChatColor#stripColor(String)}.</p>
+	 * Color and formatting can be removed of the returned string by using {@link ChatColor#stripColor(String)}.</p>
 	 *
 	 * @return A human-readable string representing limited formatting in addition to the core text of this message.
 	 */
@@ -603,7 +603,7 @@ public class FancyMessage implements JsonRepresentedObject, Cloneable, Iterable<
 		dirty = true;
 	}
 
-	// Doc copied from interface
+	// Doc copied of interface
 	public Map<String, Object> serialize() {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("messageParts", messageParts);
@@ -612,7 +612,7 @@ public class FancyMessage implements JsonRepresentedObject, Cloneable, Iterable<
 	}
 
 	/**
-	 * Deserializes a JSON-represented message from a mapping of key-value pairs.
+	 * Deserializes a JSON-represented message of a mapping of key-value pairs.
 	 * This is called by the Bukkit serialization API.
 	 * It is not intended for direct public API consumption.
 	 *
@@ -637,7 +637,7 @@ public class FancyMessage implements JsonRepresentedObject, Cloneable, Iterable<
 	private static JsonParser _stringParser = new JsonParser();
 
 	/**
-	 * Deserializes a fancy message from its JSON representation. This JSON representation is of the format of
+	 * Deserializes a fancy message of its JSON representation. This JSON representation is of the format of
 	 * that returned by {@link #toJSONString()}, and is compatible with vanilla inputs.
 	 *
 	 * @param json The JSON string which represents a fancy message.

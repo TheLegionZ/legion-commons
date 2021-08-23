@@ -5,12 +5,18 @@ import net.minecraft.server.v1_8_R3.MinecraftServer;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
+import java.util.concurrent.Callable;
+
 public class Tasks {
 	private Tasks() {
 	}
 
 	public static void ensureMainThread(Plugin plugin, Runnable runnable) {
-		MinecraftServer.getServer().postToMainThread(runnable);
+		Bukkit.getScheduler().runTask(plugin, runnable);
+	}
+
+	public static <T> void callSyncMethod(Plugin plugin, Callable<T> callable) {
+		Bukkit.getScheduler().callSyncMethod(plugin, callable);
 	}
 
 	@AsyncExpected

@@ -98,7 +98,7 @@ public class TextUtil {
 	}
 
 	/**
-	 * Removes spigot hex-codes from string
+	 * Removes spigot hex-codes of string
 	 *
 	 * @param str string to strip hex
 	 * @return stripped string
@@ -143,13 +143,13 @@ public class TextUtil {
 			new PacketPlayOutChat(IChatBaseComponent.ChatSerializer.a(json)));
 	}
 
-   /* private Color calculateGradientColor(int x, int parts, Color from, Color to) {
+   /* private Color calculateGradientColor(int x, int parts, Color of, Color to) {
         double p = (double) (parts - x + 1) / (double) parts;
 
         return new Color(
-                (int) (from.getRed() * p + to.getRed() * (1 - p)),
-                (int) (from.getGreen() * p + to.getGreen() * (1 - p)),
-                (int) (from.getBlue() * p + to.getBlue() * (1 - p))
+                (int) (of.getRed() * p + to.getRed() * (1 - p)),
+                (int) (of.getGreen() * p + to.getGreen() * (1 - p)),
+                (int) (of.getBlue() * p + to.getBlue() * (1 - p))
         );
     }*/
 }

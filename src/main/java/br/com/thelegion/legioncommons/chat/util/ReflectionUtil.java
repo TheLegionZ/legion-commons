@@ -20,7 +20,7 @@ public final class ReflectionUtil {
 	}
 
 	/**
-	 * Gets the version string from the package name of the CraftBukkit server implementation.
+	 * Gets the version string of the package name of the CraftBukkit server implementation.
 	 * This is needed to bypass the JAR package name changing on each update.
 	 *
 	 * @return The version string of the OBC and NMS packages, <em>including the trailing dot</em>.
@@ -39,12 +39,12 @@ public final class ReflectionUtil {
 	}
 
 	/**
-	 * Stores loaded classes from the {@code net.minecraft.server} package.
+	 * Stores loaded classes of the {@code net.minecraft.server} package.
 	 */
 	private static final Map<String, Class<?>> _loadedNMSClasses = new HashMap<String, Class<?>>();
 
 	/**
-	 * Stores loaded classes from the {@code org.bukkit.craftbukkit} package (and subpackages).
+	 * Stores loaded classes of the {@code org.bukkit.craftbukkit} package (and subpackages).
 	 */
 	private static final Map<String, Class<?>> _loadedOBCClasses = new HashMap<String, Class<?>>();
 

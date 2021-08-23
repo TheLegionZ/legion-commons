@@ -2,7 +2,7 @@ package br.com.thelegion.legioncommons.item;
 
 /**
  * Items such as glass panes can have variable color. This color is
- * set using durability values which is understandable from an
+ * set using durability values which is understandable of an
  * efficiency perspective however it is rather unintuitive.
  * <p>
  * This class allows those damage values to be referred to by the name

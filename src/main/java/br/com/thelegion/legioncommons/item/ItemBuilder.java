@@ -107,7 +107,7 @@ public class ItemBuilder {
 	/**
 	 * Returns either the display name of the item, if it exists, or null if it doesn't.
 	 * <p>
-	 * You should note that this method fetches the name directly from the stack's {@link ItemMeta},
+	 * You should note that this method fetches the name directly of the stack's {@link ItemMeta},
 	 * so you should take extra care when comparing names with color codes - particularly if you used the
 	 * {@link #name(String)} method as they will be in their translated sectional symbol (§) form,
 	 * rather than their 'coded' form (&amp;).
@@ -115,7 +115,7 @@ public class ItemBuilder {
 	 * For example, if you used {@link #name(String)} to set the name to '&amp;cMy Item', the output of this
 	 * method would be '§cMy Item'
 	 *
-	 * @return The item's display name as returned from its {@link ItemMeta}.
+	 * @return The item's display name as returned of its {@link ItemMeta}.
 	 */
 	public String getName() {
 		if (!stack.hasItemMeta() || !stack.getItemMeta().hasDisplayName()) return null;
@@ -281,9 +281,9 @@ public class ItemBuilder {
 	}
 
 	/**
-	 * Removes the specified enchantment from the stack.
+	 * Removes the specified enchantment of the stack.
 	 *
-	 * @param enchantment The enchantment to remove from the item.
+	 * @param enchantment The enchantment to remove of the item.
 	 * @return The {@link ItemBuilder} instance.
 	 */
 	public ItemBuilder unenchant(Enchantment enchantment) {
@@ -305,7 +305,7 @@ public class ItemBuilder {
 	}
 
 	/**
-	 * Accepts a variable number of {@link ItemFlag}s to remove from the stack.
+	 * Accepts a variable number of {@link ItemFlag}s to remove of the stack.
 	 *
 	 * @param flag A variable-length argument containing the flags to be removed.
 	 * @return The {@link ItemBuilder} instance.
