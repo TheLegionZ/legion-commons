@@ -1,6 +1,5 @@
 package br.com.thelegion.legioncommons;
 
-import br.com.thelegion.legioncommons.menu.MenuProvider;
 import br.com.thelegion.legioncommons.tick.AsyncServerTickEvent;
 import br.com.thelegion.legioncommons.tick.ServerTickEvent;
 import lombok.Getter;

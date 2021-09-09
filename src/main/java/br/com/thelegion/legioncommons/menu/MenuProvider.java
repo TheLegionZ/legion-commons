@@ -1,71 +1,35 @@
 package br.com.thelegion.legioncommons.menu;
 
-import br.com.thelegion.legioncommons.tick.AsyncServerTickEvent;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
+import br.com.thelegion.legioncommons.plugin.PluginUtils;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.plugin.Plugin;
-
-import java.util.Map;
-import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class MenuProvider implements Listener {
 
-	private final Map<UUID, InventoryMenu> playerToMenuMap = new ConcurrentHashMap<>();
+	private final Plugin plugin;
 
 	public MenuProvider(Plugin plugin) {
-		if (!plugin.isEnabled()) {
-			throw new IllegalStateException("Plugin não foi inicializado corretamente.");
-		}
+		this.plugin = plugin;
 
-		Bukkit.getPluginManager().registerEvents(this, plugin);
-	}
-
-	public void openMenu(Player player, InventoryMenu menu) {
-		menu.open(player);
-		playerToMenuMap.put(player.getUniqueId(), menu);
-	}
-
-	public InventoryMenu getOpenMenu(Player player) {
-		return playerToMenuMap.get(player.getUniqueId());
+		PluginUtils.registerPluginListeners(plugin, this);
 	}
 
 	@EventHandler(priority = EventPriority.LOWEST)
-	public void onClick(InventoryClickEvent event) {
-		Player player = (Player) event.getWhoClicked();
-
-		InventoryMenu openMenu = this.getOpenMenu(player);
-		if (openMenu == null) {
+	public void onInventoryClick(InventoryClickEvent event) {
+		Menu menu = Menu.getMenuByInventory(event.getInventory());
+		if (menu == null || !menu.getPlayer().equals(event.getWhoClicked())) {
 			return;
 		}
 
-		openMenu.handleClickEvent(event);
-	}
+		event.setCancelled(true);
 
-	@EventHandler(priority = EventPriority.LOWEST)
-	public void onClose(InventoryCloseEvent event) {
-		Player player = (Player) event.getPlayer();
-		InventoryMenu openMenu = this.getOpenMenu(player);
-		if (openMenu == null) {
-			return;
-		}
-
-		openMenu.onClose(player);
-		playerToMenuMap.remove(player.getUniqueId());
-	}
-
-	@EventHandler(priority = EventPriority.HIGHEST)
-	public void onTickUpdate(AsyncServerTickEvent event) {
-		for (Player player : Bukkit.getOnlinePlayers()) {
-			InventoryMenu menu = playerToMenuMap.get(player.getUniqueId());
-			if (menu != null) {
-				menu.onTickUpdate(player);
-			}
+		MenuItem item = menu.getItem(event.getRawSlot());
+		if (item != null) {
+			item.getClickAction().accept(event);
 		}
 	}
+
 }
