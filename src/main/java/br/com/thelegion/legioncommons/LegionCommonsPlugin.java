@@ -9,12 +9,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 @Getter
 public final class LegionCommonsPlugin extends JavaPlugin {
 
-	private MenuProvider menuProvider;
-
 	@Override
 	public void onEnable() {
-		menuProvider = new MenuProvider(this);
-
 		Bukkit.getScheduler().runTaskTimerAsynchronously(this, AsyncServerTickEvent::callEvent, 0, 1);
 		Bukkit.getScheduler().runTaskTimer(this, ServerTickEvent::callEvent, 0, 1);
 	}
