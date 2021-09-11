@@ -1,6 +1,5 @@
 package br.com.thelegion.legioncommons.menu;
 
-import br.com.thelegion.legioncommons.plugin.PluginUtils;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -13,8 +12,6 @@ public class MenuProvider implements Listener {
 
 	public MenuProvider(Plugin plugin) {
 		this.plugin = plugin;
-
-		PluginUtils.registerPluginListeners(plugin, this);
 	}
 
 	@EventHandler(priority = EventPriority.LOWEST)
