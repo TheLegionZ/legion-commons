@@ -10,7 +10,12 @@ import java.sql.SQLException;
 import java.util.function.Supplier;
 
 public class JsonProvider {
-
+	
+	public static <T> TypeToken<T> createTypeToken() {
+		return new TypeToken<T>(){};
+	}
+	
+	
 	private final Gson gson;
 
 	public JsonProvider(Gson gson) {

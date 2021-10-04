@@ -7,8 +7,7 @@ import java.util.function.Supplier;
 
 /**
  * <code>
- * Player player = Players.getPlayer
- * ("Sasuked");
+ * Player player = Players.getPlayer("Sasuked");
  * String firstJoinMessage = "Olá @player, bem vindo ao servidor @serverName (id @serverId)";
  * <p>
  * String replacedMessage = StringReplacer.replacing("@player", player::getName)

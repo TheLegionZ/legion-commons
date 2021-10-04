@@ -63,6 +63,10 @@ public class Menu implements InventoryHolder {
 
 		player.openInventory(getInventory());
 	}
+	
+	public void close(){
+	
+	}
 
 	public void refreshInventory() {
 		if (player == null || player.getOpenInventory().getTopInventory() == null) {

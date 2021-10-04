@@ -11,20 +11,20 @@ import static br.com.thelegion.legioncommons.plugin.PluginUtils.registerPluginLi
 
 @Getter
 public final class LegionCommonsPlugin extends JavaPlugin {
-
+	
 	@Override
 	public void onEnable() {
 		registerPluginListeners(this, new MenuProvider(this));
-
+		
 		Bukkit.getScheduler().runTaskTimerAsynchronously(this, AsyncServerTickEvent::callEvent, 0, 1);
 		Bukkit.getScheduler().runTaskTimer(this, ServerTickEvent::callEvent, 0, 1);
 	}
-
+	
 	@Override
 	public void onDisable() {
-
+	
 	}
-
+	
 	public static LegionCommonsPlugin getInstance() {
 		return getPlugin(LegionCommonsPlugin.class);
 	}
