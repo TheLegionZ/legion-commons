@@ -1,3 +1,4 @@
 name: LegionCommons
 version: @version@
 main: br.com.thelegion.legioncommons.LegionCommonsPlugin
+depend: [ProtocolLib]

@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'io.github.sasuked'
-version = '1.7-RELEASE'
+version = '2.0-RELEASE'
 
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
@@ -32,6 +32,9 @@ dependencies {
 
     compileOnly 'org.projectlombok:lombok:1.18.16'
     annotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+    compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.7.0";
+
 
     compileOnly("com.github.MilkBowl:VaultAPI:1.7"){
         exclude group: 'org.bukkit', module: 'bukkit'
